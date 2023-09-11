@@ -63,23 +63,34 @@ class LinkedList
 
     public void RemoveNth(int index)
     {
-        Node current = head;
-        int count = 0; /* index of Node we are
-                          currently looking at */
-        while (current != null)
-        {
-            if (count == index)
-            {
-                current.next = current.next.next;
-                return;
-            }
-            count++;
-            current = current.next;
+        // If linked list is empty
+        if (head == null)
+            return;
+
+        // Store head node
+        Node temp = head;
+
+        // If head needs to be removed
+        if (index == 0) {
+            head = temp.next; // Change head
+            return;
         }
 
-        /* if we get to this line, the caller was asking
-        for a non-existent element so we assert fail */
-        assert (false);
+        // Find previous node of the node to be deleted
+        for (int i = 0; temp != null && i < index - 1;
+             i++)
+            temp = temp.next;
+
+        // If position is more than number of nodes
+        if (temp == null || temp.next == null)
+            return;
+
+        // Node temp->next is the node to be deleted
+        // Store pointer to the next of node to be deleted
+        Node next = temp.next.next;
+
+        temp.next
+                = next; // Unlink the deleted node from list
     }
 
     // Inserts a new Node at front
@@ -201,7 +212,7 @@ class LinkedList
         // 1->7->8->6->4->NUllist
         llist.insertAfter(llist.head, 7);
         llist.insertAtNth(0, 5);
-        llist.RemoveNth(7);
+        llist.RemoveNth(6);
         System.out.println(
                 "Created Linked list is: ");
         llist.printList();
