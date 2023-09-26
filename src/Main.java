@@ -1,6 +1,8 @@
 // A complete working Java program to
 // demonstrate all insertion methods
 // on linked list
+//https://www.geeksforgeeks.org/java-program-for-inserting-a-node-in-a-linked-list/
+//https://www.geeksforgeeks.org/delete-a-linked-list-node-at-a-given-position/
 class LinkedList
 {
     // head of list
@@ -212,7 +214,7 @@ class LinkedList
         // 1->7->8->6->4->NUllist
         llist.insertAfter(llist.head, 7);
         llist.insertAtNth(0, 5);
-        llist.RemoveNth(6);
+        llist.RemoveNth(3);
         System.out.println(
                 "Created Linked list is: ");
         llist.printList();
